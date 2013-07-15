@@ -1,0 +1,29 @@
+/**
+ * 
+ */
+package headfirst.pizzastore;
+
+import headfirst.pizzastore.ingredients.PizzaIngredientFactory;
+
+/**
+ * @author Alex
+ *
+ */
+public class CheesePizza extends Pizza {
+		PizzaIngredientFactory ingredientFactory;
+		
+		public CheesePizza(String name, PizzaIngredientFactory ingredientFactory) {
+			this.name = name;
+			this.ingredientFactory = ingredientFactory;
+		}
+
+		@Override
+		public void prepare() {
+			System.out.println("Preparing "+name);
+			dough = ingredientFactory.createDough();
+			sauce = ingredientFactory.createSauce();
+			veggies = ingredientFactory.createVeggies();
+		}
+		
+
+}

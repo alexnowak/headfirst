@@ -3,6 +3,12 @@
  */
 package headfirst.pizzastore;
 
+import headfirst.pizzastore.ingredients.Clams;
+import headfirst.pizzastore.ingredients.Dough;
+import headfirst.pizzastore.ingredients.Sauce;
+import headfirst.pizzastore.ingredients.Pepperoni;
+import headfirst.pizzastore.ingredients.veggies.Veggies;
+
 import java.util.ArrayList;
 
 /**
@@ -11,19 +17,14 @@ import java.util.ArrayList;
  */
 public abstract class Pizza {
 	String name;
-	String dough;
-	String sauce;
-	ArrayList<String> toppings = new ArrayList<String>();
+	Dough dough;
+	Sauce sauce;
+	Veggies veggies[];
+	Pepperoni pepperoni;
+	Clams clams;
 	
-	public void prepare() {
-		System.out.println("Preparing "+name);
-		System.out.println("Tossing dough "+dough+"...");
-		System.out.println("Adding sauce "+sauce+" ...");
-		System.out.println("Adding "+toppings.size()+" topping(s):");
-		for (int i=0; i<toppings.size(); i++)
-			System.out.println(" ["+i+"] "+toppings.get(i));
-		
-	}
+	public abstract void prepare();
+	
 	public void bake() {
 		System.out.println("Bake for 25 mins at 350");
 	}

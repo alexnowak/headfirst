@@ -3,6 +3,8 @@
  */
 package headfirst.pizzastore;
 
+import headfirst.pizzastore.ingredients.NYPizzaIngredientFactory;
+
 /**
  * @author Alex
  *
@@ -16,9 +18,9 @@ public class NYStylePizzaStore extends PizzaStore {
 	public Pizza createPizza(String item) {
 		Pizza pizza;
 		if (item.equals("Cheese"))
-			pizza = new NYStylePizzaCheese();
+			pizza = new CheesePizza("NY Style Cheese Pizza",new NYPizzaIngredientFactory());
 		else if (item.equals("Pepperoni"))
-			pizza = new NYStylePizzaPepperoni();
+			pizza = new PepperoniPizza("NY Style Pepperoni Pizza",new NYPizzaIngredientFactory());
 		else
 			pizza = null;
 
