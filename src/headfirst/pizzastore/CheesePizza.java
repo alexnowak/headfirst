@@ -22,6 +22,7 @@ public class CheesePizza extends Pizza {
 			System.out.println("Preparing "+name);
 			dough = ingredientFactory.createDough();
 			sauce = ingredientFactory.createSauce();
+			System.out.println("\t- Vegies:");
 			veggies = ingredientFactory.createVeggies();
 		}
 		

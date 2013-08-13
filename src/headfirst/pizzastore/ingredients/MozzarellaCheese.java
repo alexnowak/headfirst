@@ -7,12 +7,12 @@ package headfirst.pizzastore.ingredients;
  * @author Alex
  *
  */
-public class MozorellaCheese implements Cheese {
+public class MozzarellaCheese implements Cheese {
 
 	/**
 	 * 
 	 */
-	public MozorellaCheese() {
+	public MozzarellaCheese() {
 		System.out.println("\t- Mozorella Cheese");
 	}
 

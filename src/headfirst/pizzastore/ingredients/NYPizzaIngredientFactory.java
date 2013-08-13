@@ -32,7 +32,7 @@ public class NYPizzaIngredientFactory implements PizzaIngredientFactory {
 	 */
 	@Override
 	public Cheese createChesse() {
-		return new MozorellaCheese();
+		return new MozzarellaCheese();
 	}
 
 	/* (non-Javadoc)
