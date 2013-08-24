@@ -9,8 +9,6 @@ import headfirst.pizzastore.ingredients.Sauce;
 import headfirst.pizzastore.ingredients.Pepperoni;
 import headfirst.pizzastore.ingredients.veggies.Veggies;
 
-import java.util.ArrayList;
-
 /**
  * @author Alex
  *
