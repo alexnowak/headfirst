@@ -1,53 +1,57 @@
-/**
- * 
- */
 package headfirst.gumball;
 
 /**
- * @author Alex
- *
+ * Created with IntelliJ IDEA.
+ * User: Alex
+ * Date: 8/26/13
+ * Time: 11:57 AM
+ * To change this template use File | Settings | File Templates.
  */
 public class SoldState implements State {
-	GumballMachine gumballMachine;
+    GumballMachine gumballMachine;
 
-	public SoldState(GumballMachine gumMachine) {
-		this.gumballMachine = gumMachine;
-	}
-	
-	/* (non-Javadoc)
-	 * @see headfirst.gumball.State#insertQuarter()
-	 */
-	@Override
-	public void insertQuarter() {
-		// TODO Auto-generated method stub
+    public SoldState(GumballMachine gumballMachine) {
+        this.gumballMachine = gumballMachine;
+    }
 
-	}
+    /**
+     * Inappropriate action for this state.
+     */
+    @Override
+    public void insertQuarter() {
+        System.out.println("You already paid.");
+    }
 
-	/* (non-Javadoc)
-	 * @see headfirst.gumball.State#ejectQuarter()
-	 */
-	@Override
-	public void ejectQuarter() {
-		// TODO Auto-generated method stub
+    /**
+     * Inappropriate action for this state.
+     */
+    @Override
+    public void ejectQuarter() {
+        System.out.println("Sold is sold. Can't get back that quarter.");
+    }
 
-	}
+    /**
+     * Inappropriate action for this state.
+     */
+    @Override
+    public void turnCrank() {
+        System.out.println("Turning twice does not give you another gumball.");
+    }
 
-	/* (non-Javadoc)
-	 * @see headfirst.gumball.State#turnCrank()
-	 */
-	@Override
-	public void turnCrank() {
-		// TODO Auto-generated method stub
-
-	}
-
-	/* (non-Javadoc)
-	 * @see headfirst.gumball.State#dispense()
-	 */
-	@Override
-	public void dispense() {
-		// TODO Auto-generated method stub
-
-	}
-
+    /**
+     * We are in Sold state so the customer paid.
+     * Let's give him a gumball.
+     * After that, set the machine to the state according to the number of
+     * gumballs.
+     */
+    @Override
+    public void dispense() {
+        gumballMachine.releaseBall();
+        if (gumballMachine.getCount() > 0)
+            gumballMachine.setState(gumballMachine.getNoQuarterState());
+        else {
+            System.out.println("Oops, out of gumballs.");
+            gumballMachine.setState(gumballMachine.getSoldOutState());
+        }
+    }
 }
